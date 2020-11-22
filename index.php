@@ -31,7 +31,6 @@
 			    <button class="button submit">ENTRAR</button>
 	        </form>
 	      </div>
-
 	    </div>
 			<div class="rightbox">
 	      <h2 class="title"><span>COntaVID</span></h2>
