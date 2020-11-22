@@ -1,3 +1,8 @@
+<?php
+//phpinfo();
+require 'conexion.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,15 +28,14 @@
 
 	      <div class="signin">
 	        <h1>INGRESAR</h1>
-	        <form class="more-padding" autocomplete="off" action="main.html">
+	        <form class="more-padding" autocomplete="off" action="inicio.php" method="post">
 				<div class="textbox">
 					<i class="fas fa-lock"></i>
-					<input type="password" placeholder="PIN">
+					<input type="password" placeholder="PIN" name="pin">
 				</div>
 			    <button class="button submit">ENTRAR</button>
 	        </form>
 	      </div>
-
 	    </div>
 			<div class="rightbox">
 	      <h2 class="title"><span>COntaVID</span></h2>
