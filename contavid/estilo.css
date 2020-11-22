@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+body {
+  background: rgb(72,94,61);
+	font-family: 'Comfortaa', cursive;
+	display: flex;
+}
+
+/* div estilo */
+.container {
+  margin: auto;
+  width: 650px;
+  height: 550px;
+  position: relative;
+}
+
+/*Sección blanca div*/
+.welcome {
+  background: white;
+  width: 650px;
+  height: 415px;
+  position: absolute;
+  top: 25%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.2);
+}
+/*Sección verde div (login)*/
+.box {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  background: rgb(91,158,84);
+  width: 320px;
+  height: 500px;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px rgba(0,0,0,.2);
+}
+
+.rightbox {
+  position: absolute;
+  width: 50%;
+	right: -2%;
+}
+
+/* textos, botones*/
+h1 {
+  text-align: center;
+  margin-top: 95px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 2em;
+  letter-spacing: 8px;
+}
+
+h2{
+	color: gray;
+  font-size: 1.8em;
+  line-height: 1.1em;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.title {
+  color: gray;
+  font-size: 1.8em;
+  line-height: 1.1em;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 20%;
+}
+
+.account {
+  margin-top: 45%;
+  font-size: 10px;
+}
+
+p {
+  font-size: .7em;
+  letter-spacing: 2px;
+  color: gray;
+  text-align: center;
+}
+
+.covid {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 36%;
+  left: 29%;
+  opacity: .7;
+}
+
+button {
+  padding: 12px;
+  letter-spacing: 3px;
+  font-size: 11px;
+  border-radius: 10px;
+  margin: auto;
+  display: block;
+}
+
+.button {
+  margin-top: 3%;
+  background: white;
+	color: gray;
+  border: solid 2px rgb(110,183,97);
+}
+
+
+/* Estilo de formas */
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 7px;
+}
+.more-padding{
+  padding-top: 65px;
+}
+
+.submit {
+  margin-top: 35px;
+  padding: 14px;
+}
+
+input {
+  background: rgb(91,158,84);
+  width: 65%;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 9px;
+  margin: 7px;
+}
+
+/*--------------------------------------------- GRAFICAS*/
+
+.container1 {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background: white;
+  opacity: .9;
+  width: 368px;
+  height: 670px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(dark, 0.5);
+}
+
+.num-personas {
+  color: rgb(110,183,97);
+  text-align: center;
+  font-size: 3em;
+  font-weight: 900;
+  margin: 0;
+}
+.personas {
+  font-size: 1em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: rgb(91,158,84);
+  text-align: center;
+  margin: 0;
+}
+
+.xdia {
+  color: rgb(91,158,84);
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: -8px;
+}
+
+#analytics {
+  padding-top: 10px;
+  width: 100%;
+  height: 40%;
+}
+
+.contadorR{
+  width: 100%;
+  height: 20%;
+  margin-top: 17%;
+  margin-bottom: 5%;
+}
+
+ul {
+  position: absolute;
+  top: 58%;
+  left: 5px;
+  magin: 0;
+  padding: 0;
+}
+
+
+li {
+  display: inline-block;
+  padding-right: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: rgb(91,158,84);
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.insights {
+  position: absolute;
+  width: 100%;
+  height: 23%;
+  bottom: 7%;
+}
+
+.insight-left {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  top: 12%;
+}
+.insight-right{
+  position: absolute;
+  right: 0;
+  width: 50%;
+  top: 12%;
+}
+
+.foot {
+  background: rgb(91,158,84);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  padding-top:15px;
+}
+
+
+.harvey {
+  font-weight: 100;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------ Contador */
+
+.convertor-card{
+  width: 500px;
+}
+
+.base,
+.converted {
+  display: flex;
+  align-items: center;
+}
+
+.base {
+  flex-direction: column;
+  padding-top: 2vmin;
+  background: rgb(110,183,97);
+  color: white;
+  border-top-left-radius: 2vmin;
+  border-top-right-radius: 2vmin;
+
+}
+
+.converted {
+  flex-direction: column;
+  padding-bottom: 1vmin;
+	padding-top: 1vmin;
+  background: white;
+  color: rgb(110,183,97);
+  border-bottom-left-radius: 2vmin;
+  border-bottom-right-radius: 2vmin;
+}
+
+.valueDate {
+  font-size:15vmin;
+  letter-spacing: 0.05em;
+}
+.valueCont {
+  font-size:25vmin;
+  letter-spacing: 0.05em;
+}
+
+/*--------------------------------------------- SEMAFORO*/
+.amarillo{
+	width: 150px;
+	height: 150px;
+	border: 1px solid white;
+	margin: 1em;
+	border-radius: 50%;
+	background: yellow;
+    visibility: visible;
+    opacity: .1;
+}
+.rojo{
+	width: 150px;
+	height: 150px;
+	border: 1px solid white;
+	margin: 1em;
+	border-radius: 50%;
+	background: red;
+    visibility: visible;
+    opacity: .1;
+}
+.verde{
+	width: 150px;
+	height: 150px;
+	border: 1px solid white;
+	margin: 1em;
+	border-radius: 50%;
+	background: green;
+    visibility: visibility;
+}
+
+.semaforo{
+  padding-top: 1vmin;
+  background: rgb(111, 111, 111);
+  color: white;
+  border-radius: 2vmin;
+  height: 544px;
+}
+
+.alinear{
+  margin-top: 5%;
+  margin-left: 22%;
+  display: flex;
+}
