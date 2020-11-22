@@ -10,7 +10,8 @@
 	<!--CSS-->
 	<link href="estilo.css" rel="stylesheet" type="text/css">
 	<!--JS-->
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script src="java.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -19,38 +20,67 @@
 <body>
 <?php
 //phpinfo();
-require 'conexion.php';
+//require 'conexion.php';
 
 //metodo post - envio del pin
-$pin = $_POST['pin'];
+    $pin = $_POST['pin'];
 
-//echo "<h1>".$pin."</h1>";
+    $url = 'https://ai-store-api.herokuapp.com/auth/signin';
+ 
+    //inicializamos el objeto CUrl
+    $ch = curl_init($url);
+        
+    //el json simulamos una petición de un login
+    $jsonData = array(
+            'pin' => $pin //código fijo
+    );
+        
+    //creamos el json a partir de nuestro arreglo
+    $jsonDataEncoded = json_encode($jsonData);
+        
+    //Indicamos que nuestra petición sera Post
+    curl_setopt($ch, CURLOPT_POST, 1);
+        
+    //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        
+    //Adjuntamos el json a nuestra petición
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+        
+    //Agregamos los encabezados del contenido
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        
+    //ignorar el certificado, servidor de desarrollo
+        //utilicen estas dos lineas si su petición es tipo https y estan en servidor de desarrollo
+    //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        //curl_setopt($process, CURLOPT_SSL_VERIFYHOST, FALSE);
+        
+    //Ejecutamos la petición
+    $result = curl_exec($ch);
 
-
-//busqueda del pin en la bd
-$pinQuery = array('pin' => $pin);
-
-$cursor = $colección->find($pinQuery);
-foreach ($cursor as $doc) {
-	//var_dump($doc);
-}
-//var_dump($cursor->toArray());
-
-if (empty($doc)) {
-    echo '<script> 
-    //alert("Pin: inexistente");
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Pin inexistente.",
-        showConfirmButton: false
-      });
-      setTimeout(function(){ window.location.href="index.php"; }, 1500);
-    </script>';
-}
-else{
-	echo '<script> window.location.href="main.php";</script>';
-}
+    // cerramos la sesión cURL
+    curl_close ($ch);
+    
+    // hacemos lo que queramos con los datos recibidos
+    $manage = json_decode($result, true);
+    //print_r($manage);
+    $auth = $manage["auth"];
+      
+    if ($auth==true) {
+        echo '<script> window.location.href="main.php";</script>';
+    }
+    else{
+        echo '<script> 
+        //alert("Pin: inexistente");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Pin inexistente.",
+            showConfirmButton: false
+        });
+        setTimeout(function(){ window.location.href="index.php"; }, 1500);
+        </script>';
+    }
 
 ?>
 </body>

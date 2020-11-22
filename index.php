@@ -1,7 +1,7 @@
-<?php
+<?php/*
 //phpinfo();
 require 'conexion.php';
-
+*/
 ?>
 <!DOCTYPE html>
 <html>
