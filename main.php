@@ -20,23 +20,22 @@
 	<header class="header">
 
 		<nav class="navigation">
-	  
+
 		  <section class="logo"></section>
-	  
+
 		  <section class="navigation__icon">
 			<span class="topBar"></span>
 			<span class="middleBar"></span>
 			<span class="bottomBar"></span>
 		  </section>
-	  
+
 		  <ul class="navigation__ul">
-			<li><a href="main.html">INICIO</a></li>
+			<li><a href="main.php">INICIO</a></li>
 			<li><a href="grafics.html">GRÁFICAS</a></li>
 			<li><a href="report.html">REPORTES</a></li>
 			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
-			<li><a  href= "index.php">SALIR</a></li>
 		  </ul>
-	  
+
 		  <section class="navigation__social">
 			<ul class="navigation__social-ul">
 			  <li>
@@ -53,10 +52,11 @@
 			  </li>
 			</ul>
 		  </section>
-	  
+
 		</nav>
-	  
+
 	</header>
+
 <div class="alinear">
 					<div class="convertor-card">
 					        <div class="base">
@@ -66,7 +66,7 @@
 									</script>
 								</span>
 											<br>
-											<i class="fa fa-male" 
+											<i class="fa fa-male"
 											style="font-size:150px;padding-top:0px;padding-bottom: 20px;">
 											</i>
 							</div>
