@@ -26,41 +26,41 @@
     $pin = $_POST['pin'];
 
     $url = 'https://ai-store-api.herokuapp.com/auth/signin';
- 
+
     //inicializamos el objeto CUrl
     $ch = curl_init($url);
-        
+
     //el json simulamos una petición de un login
     $jsonData = array(
             'pin' => $pin //código fijo
     );
-        
+
     //creamos el json a partir de nuestro arreglo
     $jsonDataEncoded = json_encode($jsonData);
-        
+
     //Indicamos que nuestra petición sera Post
     curl_setopt($ch, CURLOPT_POST, 1);
-        
+
     //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        
+
     //Adjuntamos el json a nuestra petición
     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-        
+
     //Agregamos los encabezados del contenido
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        
+
     //ignorar el certificado, servidor de desarrollo
         //utilicen estas dos lineas si su petición es tipo https y estan en servidor de desarrollo
     //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         //curl_setopt($process, CURLOPT_SSL_VERIFYHOST, FALSE);
-        
+
     //Ejecutamos la petición
     $result = curl_exec($ch);
 
     // cerramos la sesión cURL
     curl_close ($ch);
-    
+
     // hacemos lo que queramos con los datos recibidos
     $manage = json_decode($result, true);
     //print_r($manage);
@@ -72,7 +72,7 @@
         echo '<script> window.location.href="main.php?pin='.$pin.'";</script>';
     }
     else{
-        echo '<script> 
+        echo '<script>
         //alert("Pin: inexistente");
         Swal.fire({
             icon: "error",

@@ -29,6 +29,10 @@
 
 	<?php
 		/*$numpin = intval($pin);
+
+		$pin = $_SESSION["pin"];
+		$token = $_SESSION["token"];
+		$numpin = intval($pin);
 		$url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
 
 		//inicializamos el objeto CUrl
@@ -61,11 +65,24 @@
 		  </section>
 
 		  <ul class="navigation__ul">
+<<<<<<< HEAD
 			<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
 			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
 			<li><a href= "index.php">SALIR</a></li>
+=======
+<<<<<<< Updated upstream
+			<li><a href="main.php">INICIO</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
+=======
+			<li><a href="main.html">INICIO</a></li>
+			<li><a href="grafics.html">GRÁFICAS</a></li>
+>>>>>>> Stashed changes
+			<li><a href="report.html">REPORTES</a></li>
+			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
+			<li><a  href= "index.php">SALIR</a></li>
+>>>>>>> 733984247a1d9bfa7c1fc12114a9b3ed317e14bd
 		  </ul>
 
 		  <section class="navigation__social">
@@ -90,6 +107,7 @@
 	</header>
 	<div class="container1">
 	  <div class="contadorR">
+<<<<<<< HEAD
 	    <h1 class="num-personas"><a>
 			<script>
 				//document.write(aleatorio);
@@ -98,6 +116,21 @@
 				echo $cantidad;
 			?>
 		</a></h1>
+=======
+<<<<<<< Updated upstream
+	    <h1 class="num-personas">
+				<?php
+					echo $manage["store"]["peopleInside"];
+				?>
+		</h1>
+=======
+	    <h1 class="num-personas"><a>
+			<script>
+				document.write(aleatorio);
+			</script>
+		</a></h1>
+>>>>>>> Stashed changes
+>>>>>>> 733984247a1d9bfa7c1fc12114a9b3ed317e14bd
 	    <h2 class="personas">personas</h2>
 	  </div>
 
