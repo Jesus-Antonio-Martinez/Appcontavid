@@ -65,14 +65,10 @@
     $manage = json_decode($result, true);
     //print_r($manage);
     $auth = $manage["auth"];
-<<<<<<< Updated upstream
     $token = $manage["authToken"];
     
-=======
-
->>>>>>> Stashed changes
     if ($auth==true) {
-        echo 
+        echo
         '<script> window.location.href="main.php?pin='.$pin."&&token='".$token."'".'";</script>';
     }
     else{
