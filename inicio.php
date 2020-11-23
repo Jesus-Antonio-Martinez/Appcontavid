@@ -65,9 +65,11 @@
     $manage = json_decode($result, true);
     //print_r($manage);
     $auth = $manage["auth"];
-      
+    $token = $manage["authToken"];
+    
     if ($auth==true) {
-        echo '<script> window.location.href="main.php";</script>';
+        echo 
+        '<script> window.location.href="main.php?pin='.$pin."&&token='".$token."'".'";</script>';
     }
     else{
         echo '<script> 

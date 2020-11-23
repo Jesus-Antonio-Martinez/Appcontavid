@@ -16,6 +16,48 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.cjs.js"> </script>
 </head>
+
+<?php
+
+//metodo post - envio del pin
+	$pin = $_GET['pin'];
+	//echo gettype($pin);
+	//echo "<br>";
+	$token = $_GET['token'];
+
+
+	$numpin = intval($pin);
+
+    $url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
+	
+    //inicializamos el objeto CUrl
+    $ch = curl_init();
+        
+    //Indicamos que nuestra petición sera Post
+    curl_setopt($ch, CURLOPT_URL, $url);
+        
+    //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$headers = [
+		'Content-Type: Content-Type: application/json; charset=utf-8',
+		'x-access-token: '.$token
+	];
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	//print_r($headers);
+
+    //Ejecutamos la petición
+    $result = curl_exec($ch);
+
+    // cerramos la sesión cURL
+    curl_close ($ch);
+    
+    // hacemos lo que queramos con los datos recibidos
+    $manage = json_decode($result, true);
+	//print_r($result);
+
+
+?>
+
 <body>
 	<header class="header">
 
@@ -61,9 +103,12 @@
 					<div class="convertor-card">
 					        <div class="base">
 					            <span class="valueCont">
-									<script>
+									<!--<script>
 										document.write(aleatorio);
-									</script>
+									</script>-->
+									<?php
+										echo $manage["store"]["peopleInside"];
+									?>
 								</span>
 											<br>
 											<i class="fa fa-male"
