@@ -16,8 +16,74 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.cjs.js"> </script>
 </head>
+
+<?php
+//phpinfo();
+//require 'conexion.php';
+
+//metodo post - envio del pin
+	$pin = $_GET['pin'];
+	//echo gettype($pin);
+	//echo "<br>";
+	$token = $_GET['token'];
+
+	/*echo $pin;
+	echo "<br>";
+	echo gettype($pin);
+	echo "<br>";
+	echo $token;
+	echo "<br>";
+	echo gettype($token);
+	echo "<br>";*/
+
+	$numpin = intval($pin);
+	//echo $numpin;
+	//echo "<br>";
+	//echo gettype($numpin);
+	//echo "<br>";
+    $url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
+	
+	//echo $url;
+	//echo "<br>";
+    //inicializamos el objeto CUrl
+    $ch = curl_init();
+        
+    //Indicamos que nuestra petición sera Post
+    curl_setopt($ch, CURLOPT_URL, $url);
+        
+    //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	//curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', "x-access-token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaW4iOiI1NTU1IiwiaWF0IjoxNjA2MDkwNDAyLCJleHAiOjE2MDYxNzY4MDJ9.N6u9k_PwX_euSzUpjAnM0gJBKUPNoAmWIb3xu3IzWOw'"));
+	$headers = [
+		'Content-Type: Content-Type: application/json; charset=utf-8',
+		'x-access-token: '.$token
+	];
+	
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	//print_r($headers);
+
+    //Ejecutamos la petición
+    $result = curl_exec($ch);
+	print_r($result);
+	echo "<br>";
+	
+	/*
+	$info = curl_getinfo($ch);
+	print_r($info);
+	*/
+
+    // cerramos la sesión cURL
+    curl_close ($ch);
+    
+    // hacemos lo que queramos con los datos recibidos
+    /*$manage = json_decode($result, true);
+	echo "<br>";
+	print_r($manage);
+	*/
+?>
+
 <body>
-	<header class="header">
+	<!--<header class="header">
 
 		<nav class="navigation">
 	  
@@ -55,7 +121,7 @@
 	  
 		</nav>
 	  
-	</header>
+	</header>-->
 <div class="alinear">
 					<div class="convertor-card">
 					        <div class="base">
