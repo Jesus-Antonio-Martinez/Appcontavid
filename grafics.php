@@ -1,7 +1,10 @@
+<<<<<<< Updated upstream
 <?php
 	session_start();
 ?>
 
+=======
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +29,7 @@
 <body>
 
 	<?php
+<<<<<<< Updated upstream
 		$pin = $_SESSION["pin"];
 		$token = $_SESSION["token"];
 		$numpin = intval($pin);
@@ -56,6 +60,30 @@
 
 	?>
 
+=======
+		//$url = 'https://ai-store-api.herokuapp.com/info//?pin='.$numpin;
+		$url = 'https://ai-store-api.herokuapp.com/info//?pin=5431';
+		//inicio de objeto cURL
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, $url);
+
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+
+		//ejecución de la petición
+		$data = curl_exec($ch);
+
+		curl_close($ch);
+
+		//echo $data;
+		$json_data = json_decode($data,true);
+		
+	?>
+
+
+>>>>>>> Stashed changes
 	<header class="header">
 
 		<nav class="navigation">
@@ -69,8 +97,13 @@
 		  </section>
 
 		  <ul class="navigation__ul">
+<<<<<<< Updated upstream
 			<li><a href="main.php">INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
+=======
+			<li><a href="main.html">INICIO</a></li>
+			<li><a href="grafics.html">GRÁFICAS</a></li>
+>>>>>>> Stashed changes
 			<li><a href="report.html">REPORTES</a></li>
 			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
 			<li><a  href= "index.php">SALIR</a></li>
@@ -98,11 +131,19 @@
 	</header>
 	<div class="container1">
 	  <div class="contadorR">
+<<<<<<< Updated upstream
 	    <h1 class="num-personas">
 				<?php
 					echo $manage["store"]["peopleInside"];
 				?>
 		</h1>
+=======
+	    <h1 class="num-personas"><a>
+			<script>
+				document.write(aleatorio);
+			</script>
+		</a></h1>
+>>>>>>> Stashed changes
 	    <h2 class="personas">personas</h2>
 	  </div>
 
