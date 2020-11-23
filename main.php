@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,23 +25,24 @@
 
 //metodo post - envio del pin
 	$pin = $_GET['pin'];
-	session_start();
-	$_SESSION["pin"] = $pin;
 	//echo gettype($pin);
 	//echo "<br>";
 	//$token = $_GET['token'];
 
+	// variables de sesion
+	$_SESSION["pin"] = $pin;
+	//$_SESSION["token"] = $token;
 
 	$numpin = intval($pin);
 
     $url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
-	
+
     //inicializamos el objeto CUrl
     $ch = curl_init();
-        
+
     //Indicamos que nuestra petición sera Post
     curl_setopt($ch, CURLOPT_URL, $url);
-        
+
     //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	/*$headers = [
@@ -53,7 +58,7 @@
 
     // cerramos la sesión cURL
     curl_close ($ch);
-    
+
     // hacemos lo que queramos con los datos recibidos
     $manage = json_decode($result, true);
 	//print_r($result);
@@ -77,12 +82,11 @@
 		  </section>
 
 		  <ul class="navigation__ul">
-			<li><a href="main.php">INICIO</a></li>
+		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
 			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
 			<li><a href= "index.php">SALIR</a></li>
-		  </ul>
 
 		  <section class="navigation__social">
 			<ul class="navigation__social-ul">

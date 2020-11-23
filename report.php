@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	$pin = $_SESSION["pin"];
+	$cantidad = $_SESSION["cantidad"];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +37,7 @@
 		  </section>
 	  
 		  <ul class="navigation__ul">
-			<li><a href="main.php">INICIO</a></li>
+		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
 			<li><a href="configuration.php">CONFIGURACIÓN</a></li>

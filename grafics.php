@@ -3,6 +3,7 @@
 	$pin = $_SESSION["pin"];
 	$cantidad = $_SESSION["cantidad"];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,28 @@
 </head>
 
 <body>
+
+	<?php
+		/*$numpin = intval($pin);
+		$url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
+
+		//inicializamos el objeto CUrl
+		$ch = curl_init();
+
+		//Indicamos que nuestra petición sera Post
+		curl_setopt($ch, CURLOPT_URL, $url);
+
+		//Ejecutamos la petición
+		$result = curl_exec($ch);
+
+		// cerramos la sesión cURL
+		curl_close ($ch);
+
+		// hacemos lo que queramos con los datos recibidos
+		$manage = json_decode($result, true);
+		*/
+	?>
+
 	<header class="header">
 
 		<nav class="navigation">
@@ -38,7 +61,7 @@
 		  </section>
 
 		  <ul class="navigation__ul">
-			<li><a href="main.php">INICIO</a></li>
+			<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
 			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
@@ -92,7 +115,7 @@
 									//la suma del # de personas en el día (variables)
 			            data: [12, 20, 3, 5, 2, 3, 5],
 									backgroundColor: ['rgba(91,158,84, 0.46)'],
-			            borderColor: ['#3A453F'],
+			            borderColor: ['rgb(91,158,84)'],
 			            borderWidth: 1
 			        }]
 			    },
