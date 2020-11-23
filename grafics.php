@@ -28,18 +28,18 @@
 <body>
 
 	<?php
-		/*$numpin = intval($pin);
 
-		$pin = $_SESSION["pin"];
-		$token = $_SESSION["token"];
 		$numpin = intval($pin);
-		$url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
+		$url = 'https://ai-store-api.herokuapp.com/info/?pin='.$numpin;
 
 		//inicializamos el objeto CUrl
 		$ch = curl_init();
 
 		//Indicamos que nuestra petición sera Post
 		curl_setopt($ch, CURLOPT_URL, $url);
+
+		//para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 		//Ejecutamos la petición
 		$result = curl_exec($ch);
@@ -49,7 +49,12 @@
 
 		// hacemos lo que queramos con los datos recibidos
 		$manage = json_decode($result, true);
-		*/
+
+		//Fecha actual para el ciclo
+		$fechaA = date("Y")."-".date(m)."-".date(d);
+
+		$totalD = $manage["info"][0]["peopleEntering"]
+
 	?>
 
 	<header class="header">
@@ -95,10 +100,7 @@
 	<div class="container1">
 	  <div class="contadorR">
 	    <h1 class="num-personas"><a>
-			<script>
-				//document.write(aleatorio);
-			</script>
-			<?php 
+			<?php
 				echo $cantidad;
 			?>
 		</a></h1>
@@ -139,9 +141,9 @@
 	      <div class="insight-left"><h3 class="xdia">Total en el día:</h3></div>
 	      <div class="insight-right">
 			<h3 class="xdia2">
-				<script>
-					document.write(aleatorio*3);
-				</script>
+				<?php
+					echo $totalD;
+				?>
 			</h3>
 		  </div>
 
