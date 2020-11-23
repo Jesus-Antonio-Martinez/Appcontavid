@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,17 +29,20 @@
 	//echo "<br>";
 	$token = $_GET['token'];
 
+	// variables de sesion
+	$_SESSION["pin"] = $pin;
+	$_SESSION["token"] = $token;
 
 	$numpin = intval($pin);
 
     $url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
-	
+
     //inicializamos el objeto CUrl
     $ch = curl_init();
-        
+
     //Indicamos que nuestra petición sera Post
     curl_setopt($ch, CURLOPT_URL, $url);
-        
+
     //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$headers = [
@@ -50,7 +57,7 @@
 
     // cerramos la sesión cURL
     curl_close ($ch);
-    
+
     // hacemos lo que queramos con los datos recibidos
     $manage = json_decode($result, true);
 	//print_r($result);
@@ -73,7 +80,7 @@
 
 		  <ul class="navigation__ul">
 			<li><a href="main.php">INICIO</a></li>
-			<li><a href="grafics.html">GRÁFICAS</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.html">REPORTES</a></li>
 			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
 		  </ul>
