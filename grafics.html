@@ -15,21 +15,23 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
 </head>
 
 <body>
 	<header class="header">
 
 		<nav class="navigation">
-	  
+
 		  <section class="logo"></section>
-	  
+
 		  <section class="navigation__icon">
 			<span class="topBar"></span>
 			<span class="middleBar"></span>
 			<span class="bottomBar"></span>
 		  </section>
-	  
+
 		  <ul class="navigation__ul">
 			<li><a href="main.html">INICIO</a></li>
 			<li><a href="grafics.html">GRÁFICAS</a></li>
@@ -37,7 +39,7 @@
 			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
 			<li><a  href= "index.php">SALIR</a></li>
 		  </ul>
-	  
+
 		  <section class="navigation__social">
 			<ul class="navigation__social-ul">
 			  <li>
@@ -54,9 +56,9 @@
 			  </li>
 			</ul>
 		  </section>
-	  
+
 		</nav>
-	  
+
 	</header>
 	<div class="container1">
 	  <div class="contadorR">
@@ -67,18 +69,36 @@
 		</a></h1>
 	    <h2 class="personas">personas</h2>
 	  </div>
-	  <canvas id="analytics">
-	  </canvas>
-	  <div class="days">
-	    <ul>
-	      <li>Mon</li>
-	      <li>Tue</li>
-	      <li>Wed</li>
-	      <li>Thu</li>
-	      <li>Fri</li>
-	      <li>Sat</li>
-	      <li class="nopadding">Sun</li>
-	    </ul>
+
+		<!--Grafica-->
+		<canvas id="myChart"></canvas>
+			<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
+
+							datasets: [{
+			            label: '# de personas',
+									//la suma del # de personas en el día (variables)
+			            data: [12, 20, 3, 5, 2, 3, 5],
+									backgroundColor: ['rgba(91,158,84, 0.46)'],
+			            borderColor: ['#3A453F'],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+			</script>
 
 	    <div class="insights">
 	      <div class="insight-left"><h3 class="xdia">Total en el día:</h3></div>
@@ -89,7 +109,7 @@
 				</script>
 			</h3>
 		  </div>
-	    </div>
+
 
 			</div>
 	  <div class="foot">

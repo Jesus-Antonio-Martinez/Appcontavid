@@ -415,9 +415,9 @@ input {
 html {
   box-sizing: border-box;
 }
-body{    
-  font-family: 'Roboto Condensed', sans-serif;     
-  
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+
 }
 body {
 padding: 0;
@@ -448,8 +448,8 @@ position: absolute;
 top: 0;
 left: 0;
 background: rgb(91,158,84);
-border-radius: 0% 50% 350% 0%;   
-perspective: 800;   
+border-radius: 0% 50% 350% 0%;
+perspective: 800;
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 box-shadow: 10px 10px 8px rgba(0,0,0,.2);
 }
@@ -460,10 +460,10 @@ height: 70px;
 display: block;
 position: absolute;
 top: 8%;
-left: 15%; 
-cursor: pointer;  
-transform-style: preserve-3d;   
-transform: rotateY(-360deg);   
+left: 15%;
+cursor: pointer;
+transform-style: preserve-3d;
+transform: rotateY(-360deg);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
@@ -475,7 +475,7 @@ position: relative;
 top: 22%;
 left: 35%;
 background: hsla(312, 51%, 41%, 0.0);
-cursor: pointer;  
+cursor: pointer;
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
@@ -485,8 +485,8 @@ height: 2px;
 display: block;
 background: #fff;
 position: absolute;
-top: 10px;   
-transform: rotate(0);   
+top: 10px;
+transform: rotate(0);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
@@ -496,7 +496,7 @@ height: 2px;
 display: block;
 background: #fff;
 position: absolute;
-top: 20px;   
+top: 20px;
 transform: rotate(0);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
@@ -507,8 +507,8 @@ height: 2px;
 display: block;
 background: #fff;
 position: absolute;
-top: 30px;   
-transform: rotate(0);   
+top: 30px;
+transform: rotate(0);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
@@ -516,8 +516,8 @@ transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 float: right;
 margin-top: 220px;
 opacity: 0;
-visibility: hidden;  
-transform: rotateY(-90deg) translateX(-300px);   
+visibility: hidden;
+transform: rotateY(-90deg) translateX(-300px);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
@@ -553,23 +553,23 @@ float: right;
 list-style: none;
 white-space: nowrap;
 opacity: 0;
-visibility: hidden;   
-transform: rotateY(-90deg) translateX(-300px);   
+visibility: hidden;
+transform: rotateY(-90deg) translateX(-300px);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
 .navigation .navigation__social-ul li {
 display: inline-block;
 opacity: 0;
-visibility: hidden;   
-transform: translateY(35px);   
+visibility: hidden;
+transform: translateY(35px);
 transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
 .navigation .social-icon {
 width: 30px;
 height: 30px;
-display: block;   
+display: block;
 margin-left: 15px;
 }
 
@@ -585,7 +585,7 @@ border-radius: 0% 1% 1% 0%;
 }
 
 .navigation-open .logo {
-left: 68%;   
+left: 68%;
 transform: rotateY(0);
 }
 
@@ -604,54 +604,54 @@ visibility: visible;
 }
 
 .navigation-open .topBar {
-top: 21px;   
+top: 21px;
 transform: rotate(45deg);
-background: rgb(91,158,84);	
+background: rgb(91,158,84);
 }
 
 .navigation-open .middleBar {
 width: 0;
 top: 22px;
 opacity: 0;
-visibility: hidden; 
+visibility: hidden;
 transform: translateX(30px);
-background: rgb(91,158,84);	
+background: rgb(91,158,84);
 }
 
 .navigation-open .bottomBar {
 width: 55px;
-top: 21px;   
+top: 21px;
 transform: rotate(-45deg);
-background: rgb(91,158,84);	
+background: rgb(91,158,84);
 }
 
-.navigation-open .navigation__ul {   
+.navigation-open .navigation__ul {
 transform: rotateY(0) translateX(0);
 }
 
-.navigation-open .navigation__social-ul {   
+.navigation-open .navigation__social-ul {
 transform: rotateY(0) translateX(0);
 }
 
 .navigation-open .navigation__social-ul li {
 opacity: 1;
-visibility: visible;   
+visibility: visible;
 transform: translateY(0px);
 }
 
-.navigation-open .navigation__social-ul li:nth-child(1) {   
+.navigation-open .navigation__social-ul li:nth-child(1) {
 transition-delay: .5s;
 }
 
-.navigation-open .navigation__social-ul li:nth-child(2) {   
+.navigation-open .navigation__social-ul li:nth-child(2) {
 transition-delay: .46s;
 }
 
-.navigation-open .navigation__social-ul li:nth-child(3) {   
+.navigation-open .navigation__social-ul li:nth-child(3) {
 transition-delay: .43s;
 }
 
-.navigation-open .navigation__social-ul li:nth-child(4) {   
+.navigation-open .navigation__social-ul li:nth-child(4) {
 transition-delay: .4s;
 }
 
