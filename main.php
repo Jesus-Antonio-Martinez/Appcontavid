@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,38 +27,44 @@
 	$pin = $_GET['pin'];
 	//echo gettype($pin);
 	//echo "<br>";
-	$token = $_GET['token'];
+	//$token = $_GET['token'];
 
+	// variables de sesion
+	$_SESSION["pin"] = $pin;
+	//$_SESSION["token"] = $token;
 
 	$numpin = intval($pin);
 
     $url = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin;
-	
+
     //inicializamos el objeto CUrl
     $ch = curl_init();
-        
+
     //Indicamos que nuestra petición sera Post
     curl_setopt($ch, CURLOPT_URL, $url);
-        
+
     //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$headers = [
+	/*$headers = [
 		'Content-Type: Content-Type: application/json; charset=utf-8',
 		'x-access-token: '.$token
 	];
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	//print_r($headers);
+	*/
 
     //Ejecutamos la petición
     $result = curl_exec($ch);
 
     // cerramos la sesión cURL
     curl_close ($ch);
-    
+
     // hacemos lo que queramos con los datos recibidos
     $manage = json_decode($result, true);
 	//print_r($result);
 
+	$cantidad = $manage["store"]["peopleInside"];
+	$_SESSION["cantidad"]=$cantidad;
 
 ?>
 
@@ -62,22 +72,22 @@
 	<header class="header">
 
 		<nav class="navigation">
-	  
+
 		  <section class="logo"></section>
-	  
+
 		  <section class="navigation__icon">
 			<span class="topBar"></span>
 			<span class="middleBar"></span>
 			<span class="bottomBar"></span>
 		  </section>
-	  
+
 		  <ul class="navigation__ul">
-			<li><a href="main.html">INICIO</a></li>
-			<li><a href="grafics.html">GRÁFICAS</a></li>
-			<li><a href="report.html">REPORTES</a></li>
-			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
-		  </ul>
-	  
+		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
+			<li><a href="report.php">REPORTES</a></li>
+			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<li><a href= "index.php">SALIR</a></li>
+
 		  <section class="navigation__social">
 			<ul class="navigation__social-ul">
 			  <li>
@@ -94,23 +104,33 @@
 			  </li>
 			</ul>
 		  </section>
-	  
+
 		</nav>
-	  
+
 	</header>
+
 <div class="alinear">
 					<div class="convertor-card">
 					        <div class="base">
 					            <span class="valueCont">
-									<!--<script>
-										document.write(aleatorio);
-									</script>-->
 									<?php
-										echo $manage["store"]["peopleInside"];
-									?>
+										echo $cantidad;
+									?>	
+									<script>
+										if( <?php echo $cantidad; ?> ==200){
+											colorSemaforo=0; //rojo
+										}
+										else if( <?php echo $cantidad; ?> <200 &&  <?php echo $cantidad; ?> >150){
+											colorSemaforo=1; //amarillo
+										}
+										else if( <?php echo $cantidad; ?> <=150){
+											colorSemaforo=2; //verde
+	}
+									</script>
+									
 								</span>
 											<br>
-											<i class="fa fa-male" 
+											<i class="fa fa-male"
 											style="font-size:150px;padding-top:0px;padding-bottom: 20px;">
 											</i>
 							</div>
