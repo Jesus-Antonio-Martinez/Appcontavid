@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$pin = $_SESSION["pin"];
+	$cantidad = $_SESSION["cantidad"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,11 +38,11 @@
 		  </section>
 
 		  <ul class="navigation__ul">
-			<li><a href="main.html">INICIO</a></li>
-			<li><a href="grafics.html">GRÁFICAS</a></li>
-			<li><a href="report.html">REPORTES</a></li>
-			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
-			<li><a  href= "index.php">SALIR</a></li>
+			<li><a href="main.php">INICIO</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
+			<li><a href="report.php">REPORTES</a></li>
+			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
 
 		  <section class="navigation__social">
@@ -64,8 +69,11 @@
 	  <div class="contadorR">
 	    <h1 class="num-personas"><a>
 			<script>
-				document.write(aleatorio);
+				//document.write(aleatorio);
 			</script>
+			<?php 
+				echo $cantidad;
+			?>
 		</a></h1>
 	    <h2 class="personas">personas</h2>
 	  </div>

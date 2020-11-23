@@ -68,8 +68,8 @@
     $token = $manage["authToken"];
     
     if ($auth==true) {
-        echo 
-        '<script> window.location.href="main.php?pin='.$pin."&&token='".$token."'".'";</script>';
+        //echo '<script> window.location.href="main.php?pin='.$pin."&&token='".$token."'".'";</script>';
+        echo '<script> window.location.href="main.php?pin='.$pin.'";</script>';
     }
     else{
         echo '<script> 

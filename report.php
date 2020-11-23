@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Configuración | COntaVID</title>
+<title>Reportes | COntaVID</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <!--Favicon-->
@@ -31,11 +31,11 @@
 		  </section>
 	  
 		  <ul class="navigation__ul">
-			<li><a href="main.html">INICIO</a></li>
-			<li><a href="grafics.html">GRÁFICAS</a></li>
-			<li><a href="report.html">REPORTES</a></li>
-			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
-			<li><a  href= "index.php">SALIR</a></li>
+			<li><a href="main.php">INICIO</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
+			<li><a href="report.php">REPORTES</a></li>
+			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
 	  
 		  <section class="navigation__social">
@@ -60,15 +60,19 @@
 	</header>
 
 	<div class="container">
-	  	<div class="welcome" id="reportes">
-				<h2>Configuración</h2>
+	  <div class="welcome" id="reportes">
+				<h2>REPORTES</h2>
 				<br>
-			  	<p>
-					Ajustes
-				</p>
-	  	</div>
-	</div>
-	<div id="contenedor_carga">
+			  <form autocomplete="off">
+					<p>FECHA INICIO</p>
+					<input type="date">
+					<p>FECHA FIN</p>
+					<input type="date">
+				</form>
+	      <button class="button" onclick="imprimir()">GENERAR</button>
+	  </div>
+	 </div>
+	 <div id="contenedor_carga">
 		<div id="carga">
 		</div>
 	</div>

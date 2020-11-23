@@ -21,9 +21,11 @@
 
 //metodo post - envio del pin
 	$pin = $_GET['pin'];
+	session_start();
+	$_SESSION["pin"] = $pin;
 	//echo gettype($pin);
 	//echo "<br>";
-	$token = $_GET['token'];
+	//$token = $_GET['token'];
 
 
 	$numpin = intval($pin);
@@ -38,12 +40,13 @@
         
     //para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$headers = [
+	/*$headers = [
 		'Content-Type: Content-Type: application/json; charset=utf-8',
 		'x-access-token: '.$token
 	];
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	//print_r($headers);
+	*/
 
     //Ejecutamos la petición
     $result = curl_exec($ch);
@@ -55,6 +58,8 @@
     $manage = json_decode($result, true);
 	//print_r($result);
 
+	$cantidad = $manage["store"]["peopleInside"];
+	$_SESSION["cantidad"]=$cantidad;
 
 ?>
 
@@ -73,9 +78,10 @@
 
 		  <ul class="navigation__ul">
 			<li><a href="main.php">INICIO</a></li>
-			<li><a href="grafics.html">GRÁFICAS</a></li>
-			<li><a href="report.html">REPORTES</a></li>
-			<li><a href="configuration.html">CONFIGURACIÓN</a></li>
+			<li><a href="grafics.php">GRÁFICAS</a></li>
+			<li><a href="report.php">REPORTES</a></li>
+			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
 
 		  <section class="navigation__social">
@@ -103,12 +109,21 @@
 					<div class="convertor-card">
 					        <div class="base">
 					            <span class="valueCont">
-									<!--<script>
-										document.write(aleatorio);
-									</script>-->
 									<?php
-										echo $manage["store"]["peopleInside"];
-									?>
+										echo $cantidad;
+									?>	
+									<script>
+										if( <?php echo $cantidad; ?> ==200){
+											colorSemaforo=0; //rojo
+										}
+										else if( <?php echo $cantidad; ?> <200 &&  <?php echo $cantidad; ?> >150){
+											colorSemaforo=1; //amarillo
+										}
+										else if( <?php echo $cantidad; ?> <=150){
+											colorSemaforo=2; //verde
+	}
+									</script>
+									
 								</span>
 											<br>
 											<i class="fa fa-male"
