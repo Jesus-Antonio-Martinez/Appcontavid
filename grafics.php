@@ -30,7 +30,7 @@
 	<?php
 
 		$numpin = intval($pin);
-		$url = 'https://ai-store-api.herokuapp.com/info/?pin='.$numpin;
+		$url = 'https://ai-store-api.herokuapp.com/info/7days-maxes/?pin='.$numpin;
 
 		//inicializamos el objeto CUrl
 		$ch = curl_init();
@@ -52,8 +52,18 @@
 
 		//Fecha actual para el ciclo
 		//$fechaA = date("Y")."-".date(m)."-".date(d);
+		//$dias = $manage["info"][day]["currentDay"]
+		//echo $dias[1]." personas ".$maxcantidad[1];
 
-		$totalD = $manage["info"][0]["peopleEntering"]
+		$dias = array();
+		$maxcantidad = array();
+		$i = 1;
+
+		while($i<=7){
+			$dias[$i] = $manage["info"]["day_".$i]["currentDay"];
+			$maxcantidad[$i] = $manage["info"]["day_".$i]["maxPeople"];
+			$i++;
+		}
 
 	?>
 
@@ -111,15 +121,33 @@
 		<canvas id="myChart"></canvas>
 			<script>
 			var ctx = document.getElementById('myChart').getContext('2d');
+			var dia1 = '<?php echo $maxcantidad[1]; ?>';
+			var dia2 = '<?php echo $maxcantidad[2]; ?>';
+			var dia3 = '<?php echo $maxcantidad[3]; ?>';
+			var dia4 = '<?php echo $maxcantidad[4]; ?>';
+			var dia5 = '<?php echo $maxcantidad[5]; ?>';
+			var dia6 = '<?php echo $maxcantidad[6]; ?>';
+			var dia7 = '<?php echo $maxcantidad[7]; ?>';
+			//date("jS F, Y", strtotime( $Fecha))
+			var d1 = '<?php echo date("d/m/y", strtotime($dias[1]));?>';
+			var d2 = '<?php echo date("d/m/y", strtotime($dias[2]));?>';
+			var d3 = '<?php echo date("d/m/y", strtotime($dias[3]));?>';
+			var d4 = '<?php echo date("d/m/y", strtotime($dias[4]));?>';
+			var d5 = '<?php echo date("d/m/y", strtotime($dias[5]));?>';
+			var d6 = '<?php echo date("d/m/y", strtotime($dias[6]));?>';
+			var d7 = '<?php echo date("d/m/y", strtotime($dias[7]));?>';
+
 			var myChart = new Chart(ctx, {
 			    type: 'line',
 			    data: {
-			        labels: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
-
+							//ultimos 7 días currentDate
+			        labels: [d1, d2, d3, d4, d5, d6, d7],
 							datasets: [{
 			            label: '# de personas',
-									//la suma del # de personas en el día (variables)
-			            data: [12, 20, 3, 5, 2, 3, 5],
+
+									//el numero maximo de personas en el día maxPeople
+			            data: [dia1, dia2, dia3, dia4, dia5, dia6, dia7],
+
 									backgroundColor: ['rgba(91,158,84, 0.46)'],
 			            borderColor: ['rgb(91,158,84)'],
 			            borderWidth: 1
@@ -142,7 +170,7 @@
 	      <div class="insight-right">
 			<h3 class="xdia2">
 				<?php
-					echo $totalD;
+					//echo $totalD;
 				?>
 			</h3>
 		  </div>
