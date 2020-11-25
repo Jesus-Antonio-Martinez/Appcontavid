@@ -24,26 +24,24 @@
 
 </head>
 <body>
-	<header class="header">
 
+	<header class="header">
 		<nav class="navigation">
-	  
 		  <section class="logo"></section>
-	  
 		  <section class="navigation__icon">
 			<span class="topBar"></span>
 			<span class="middleBar"></span>
 			<span class="bottomBar"></span>
 		  </section>
-	  
+
 		  <ul class="navigation__ul">
-		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
+		  <li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
 			<!--<li><a href="configuration.php">CONFIGURACIÓN</a></li>-->
 			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
-	  
+
 		  <section class="navigation__social">
 			<ul class="navigation__social-ul">
 			  <li>
@@ -60,28 +58,30 @@
 			  </li>
 			</ul>
 		  </section>
-	  
 		</nav>
-	  
 	</header>
 
 	<div class="container">
 	  <div class="welcome" id="reportes">
 				<h2>REPORTES</h2>
 				<br>
-			  <form autocomplete="off">
+
+			  <form autocomplete="off" action="reportTable.php" method="post">
 					<p>FECHA INICIO</p>
-					<input type="date">
+					<input type="date" name="fechaI" id="fechaI" >
 					<p>FECHA FIN</p>
-					<input type="date">
+					<input type="date" name="fechaF" id="fechaF">
+					<button class="button" value="Enviar">GENERAR</button>
 				</form>
-	      <button class="button" onclick="imprimir()">GENERAR</button>
+
 	  </div>
-	 </div>
-	 <div id="contenedor_carga">
+	</div>
+
+	<div id="contenedor_carga">
 		<div id="carga">
 		</div>
 	</div>
+
 	<script>
 		/*window.onload = function(){
 			var contenedor = document.getElementById('contenedor_carga');
