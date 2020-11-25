@@ -30,41 +30,45 @@
 	<?php
 
 		$numpin = intval($pin);
-		$url = 'https://ai-store-api.herokuapp.com/info/7days-maxes/?pin='.$numpin;
+		$url = 'https://ai-store-api.herokuapp.com/info/7days-maxes/?pin='.$numpin; //GET
+		$url1 = 'https://ai-store-api.herokuapp.com/auth/?pin='.$numpin; //GET
 
 		//inicializamos el objeto CUrl
-		$ch = curl_init();
+		$ch = curl_init(); //GET
+		$ch1= curl_init(); //GET
 
 		//Indicamos que nuestra petición sera Post
-		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_URL, $url); //GET
+		curl_setopt($ch1, CURLOPT_URL, $url1); //GET
 
 		//para que la peticion no imprima el resultado como un echo comun, y podamos manipularlo
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //GET
+		curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1); //GET
 
 		//Ejecutamos la petición
-		$result = curl_exec($ch);
+		$result = curl_exec($ch); //GET
+		$result1 = curl_exec($ch1); //GET
 
 		// cerramos la sesión cURL
-		curl_close ($ch);
+		curl_close ($ch);//GET
+		curl_close ($ch1);//GET
 
 		// hacemos lo que queramos con los datos recibidos
-		$manage = json_decode($result, true);
+		$manage = json_decode($result, true);//GET
+		$manage1 = json_decode($result1, true);//GET
 
-		//Fecha actual para el ciclo
-		//$fechaA = date("Y")."-".date(m)."-".date(d);
-		//$dias = $manage["info"][day]["currentDay"]
-		//echo $dias[1]." personas ".$maxcantidad[1];
-
+		//Almacena los ultimos 7 días, con la maxima de personas
 		$dias = array();
 		$maxcantidad = array();
 		$i = 1;
-
 		while($i<=7){
 			$dias[$i] = $manage["info"]["day_".$i]["currentDay"];
 			$maxcantidad[$i] = $manage["info"]["day_".$i]["maxPeople"];
 			$i++;
 		}
 
+		//Total de entradas del día
+		$totalD = $manage1["store"]["maxPeople"];
 	?>
 
 	<header class="header">
@@ -166,11 +170,11 @@
 			</script>
 
 	    <div class="insights">
-	      <div class="insight-left"><h3 class="xdia">Total en el día:</h3></div>
+	      <div class="insight-left"><h4 class="xdia">Entradas en el día:</h4></div>
 	      <div class="insight-right">
 			<h3 class="xdia2">
 				<?php
-					//echo $totalD;
+					echo $totalD;
 				?>
 			</h3>
 		  </div>
