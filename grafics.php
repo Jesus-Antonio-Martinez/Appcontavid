@@ -51,7 +51,7 @@
 		$manage = json_decode($result, true);
 
 		//Fecha actual para el ciclo
-		$fechaA = date("Y")."-".date(m)."-".date(d);
+		//$fechaA = date("Y")."-".date(m)."-".date(d);
 
 		$totalD = $manage["info"][0]["peopleEntering"]
 
