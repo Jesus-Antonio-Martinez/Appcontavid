@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$pin = $_SESSION["pin"];
+
 
 	$numpin = intval($pin);
 	$urlT = 'https://ai-store-api.herokuapp.com/info/interval/?pin='.$numpin;
@@ -6,13 +9,13 @@
 	//inicializamos el objeto CUrl
 	$chT = curl_init();
 
-	//$hoy = getdate();
-	$hoy = "2020-11-17";
+	$fI = $_POST["fechaI"];
+	$fF = $_POST["fechaF"];
 
 	//el json simulamos una petición fecha inicial-fecha final
 	$jsonData = array(
-					'startingDate' => $hoy,
-					'endingDate' => $hoy
+					'startingDate' => $fI,
+					'endingDate' => $fF
 	);
 
 	//creamos el json a partir de nuestro arreglo
@@ -37,12 +40,6 @@
 	curl_close ($chT);
 
 	// hacemos lo que queramos con los datos recibidos
-	$manageT = json_decode($resultT, true);
-
-	//Total de registros json
-	$totalResutl = count($manageT);
-
-	//Almacena el total de entradas del día
-
+	$manageT = json_decode($resultT);
 
 ?>
