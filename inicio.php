@@ -65,7 +65,7 @@
     $manage = json_decode($result, true);
     //print_r($manage);
     $auth = $manage["auth"];
-    $token = $manage["authToken"];
+    //$token = $manage["authToken"];
     
     if ($auth==true) {
         //echo '<script> window.location.href="main.php?pin='.$pin."&&token='".$token."'".'";</script>';
@@ -75,15 +75,38 @@
         echo '<script>
         //alert("Pin: inexistente");
         Swal.fire({
-            icon: "error",
-            title: "Oops...",
+            icon: "warning",
+            title: "Ocurrio un problema",
             text: "Pin inexistente.",
             showConfirmButton: false
         });
-        setTimeout(function(){ window.location.href="index.php"; }, 1500);
+        setTimeout(function(){ window.location.href="index.php"; }, 2000);
         </script>';
     }
 
 ?>
+
+<div class="container">
+	  <div class="welcome">
+	    <div class="box">
+	      <div class="signin">
+	        <h1>INGRESAR</h1>
+	        <form class="more-padding" autocomplete="off" action="inicio.php" method="post">
+				<div class="textbox">
+					<i class="fas fa-lock"></i>
+					<input type="password" placeholder="PIN" name="pin">
+				</div>
+			    <button class="button submit">ENTRAR</button>
+	        </form>
+	      </div>
+	    </div>
+			<div class="rightbox">
+	      <h2 class="title"><span>COntaVID</span></h2>
+	      <img class="covid" src="https://www.megaidea.net/wp-content/uploads/2020/03/coronavirus01.png"/>
+	      <p class="account">¿NO ESTAS REGISTRADO?</p>
+	      <button class="button" onclick="registrar()">REGISTRARSE</button>
+	    </div>
+	  </div>
+	 </div>
 </body>
 </html>

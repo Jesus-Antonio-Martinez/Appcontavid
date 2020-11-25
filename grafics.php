@@ -87,7 +87,7 @@
 			<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
-			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<!--<li><a href="configuration.php">CONFIGURACIÓN</a></li>-->
 			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
 
@@ -118,7 +118,7 @@
 				echo $cantidad;
 			?>
 		</a></h1>
-	    <h2 class="personas">personas</h2>
+	    <h2 class="personas">personas en la tienda</h2>
 	  </div>
 
 		<!--Grafica-->
@@ -144,15 +144,15 @@
 			var myChart = new Chart(ctx, {
 			    type: 'line',
 			    data: {
-							//ultimos 7 días currentDate
-			        labels: [d1, d2, d3, d4, d5, d6, d7],
-							datasets: [{
-			            label: '# de personas',
+						//ultimos 7 días currentDate
+			        	labels: [d7, d6, d5, d4, d3, d2, d1],
+						datasets: [{
+			            label: '# Máximo de personas',
 
-									//el numero maximo de personas en el día maxPeople
-			            data: [dia1, dia2, dia3, dia4, dia5, dia6, dia7],
+						//el numero maximo de personas en el día maxPeople
+			            data: [dia7, dia6, dia5, dia4, dia3, dia2, dia1],
 
-									backgroundColor: ['rgba(91,158,84, 0.46)'],
+						backgroundColor: ['rgba(91,158,84, 0.46)'],
 			            borderColor: ['rgb(91,158,84)'],
 			            borderWidth: 1
 			        }]
@@ -170,9 +170,9 @@
 			</script>
 
 	    <div class="insights">
-	      <div class="insight-left"><h4 class="xdia">Entradas en el día:</h4></div>
+	      <div class="insight-left"><h4 class="xdia"> &nbsp;Máximo &nbsp;en el día:</h4></div>
 	      <div class="insight-right">
-			<h3 class="xdia2">
+			<h3 class="xdia2" style="padding-top:15px;">
 				<?php
 					echo $totalD;
 				?>
@@ -198,11 +198,11 @@
 			contenedor.style.visibility = "hidden";
 			contenedor.style.opacity="0";
 		}*/
-		setTimeout(() => {
+		window.onload = function(){
 			var contenedor = document.getElementById('contenedor_carga');
 			contenedor.style.visibility = "hidden";
 			contenedor.style.opacity="0";
-		}, 1000);
+		}
 	</script>
 </body>
 </html>

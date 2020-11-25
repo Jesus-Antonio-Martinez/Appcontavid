@@ -7,18 +7,18 @@ function horas() {
 	let h = new Date();
 	if(h.getHours()<10){
 		if(h.getMinutes()<10){
-			document.getElementById('hora').innerHTML = '0' + h.getHours() + ":" + '0' + h.getMinutes();
+			document.getElementById('hora').innerHTML = '<i class="far fa-clock"></i> ' + ' ' + '0' + h.getHours() + ":" + '0' + h.getMinutes();
 		}
 		else{
-			document.getElementById('hora').innerHTML = '0' + h.getHours() + ":" + h.getMinutes();
+			document.getElementById('hora').innerHTML = '<i class="far fa-clock"></i> ' + ' ' + '0' + h.getHours() + ":" + h.getMinutes();
 		}
 	}
 	else{
 		if(h.getMinutes()<10){
-			document.getElementById('hora').innerHTML = h.getHours() + ":" + '0' + h.getMinutes();
+			document.getElementById('hora').innerHTML = '<i class="far fa-clock"></i> ' + ' ' + h.getHours() + ":" + '0' + h.getMinutes();
 		}
 		else{
-			document.getElementById('hora').innerHTML = h.getHours() + ":" + h.getMinutes();
+			document.getElementById('hora').innerHTML = '<i class="far fa-clock"></i> ' + ' ' + h.getHours() + ":" + h.getMinutes();
 		}
 	}
 }

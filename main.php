@@ -85,7 +85,7 @@
 		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
-			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<!--<li><a href="configuration.php">CONFIGURACIÓN</a></li>-->
 			<li><a href= "index.php">SALIR</a></li>
 
 		  <section class="navigation__social">
@@ -117,26 +117,25 @@
 										echo $cantidad;
 									?>	
 									<script>
-										if( <?php echo $cantidad; ?> ==200){
+										if( <?php echo $cantidad; ?> ==50){
 											colorSemaforo=0; //rojo
 										}
-										else if( <?php echo $cantidad; ?> <200 &&  <?php echo $cantidad; ?> >150){
+										else if( <?php echo $cantidad; ?> <50 &&  <?php echo $cantidad; ?> >35){
 											colorSemaforo=1; //amarillo
 										}
-										else if( <?php echo $cantidad; ?> <=150){
+										else if( <?php echo $cantidad; ?> <=35){
 											colorSemaforo=2; //verde
 	}
 									</script>
 									
 								</span>
 											<br>
-											<i class="fa fa-male"
-											style="font-size:150px;padding-top:0px;padding-bottom: 20px;">
-											</i>
+											<i class="fas fa-walking" style="font-size:150px;padding-top:0px;padding-bottom: 20px;float:left;"></i>
+											
 							</div>
 
 					        <div class="converted">
-					                <span class="valueDate" id="hora"></span>
+								<span class="valueDate" id="hora" style="float:right;"></span>
 					        </div>
 					</div>
 
@@ -175,10 +174,14 @@
 		contenedor.style.opacity="0";
 	}*/
 	setTimeout(() => {
+		location.reload();
+	}, 10000);
+
+	window.onload = function(){
 		var contenedor = document.getElementById('contenedor_carga');
 		contenedor.style.visibility = "hidden";
 		contenedor.style.opacity="0";
-	}, 1000);
+	}
 </script>
 </body>
 </html>

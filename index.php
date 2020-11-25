@@ -68,6 +68,7 @@ require 'conexion.php';
 			Swal.mixin({
 			input: 'text',
 			confirmButtonText: 'Siguiente &rarr;',
+			cancelButtonText: 'Cancelar',
 			showCancelButton: true,
 			confirmButtonColor: 'rgb(91,158,84)',
 			progressSteps: ['1', '2', '3']

@@ -40,7 +40,7 @@
 		  	<li><a href=<?php echo '"main.php?pin='.$pin.'"'?>>INICIO</a></li>
 			<li><a href="grafics.php">GRÁFICAS</a></li>
 			<li><a href="report.php">REPORTES</a></li>
-			<li><a href="configuration.php">CONFIGURACIÓN</a></li>
+			<!--<li><a href="configuration.php">CONFIGURACIÓN</a></li>-->
 			<li><a href= "index.php">SALIR</a></li>
 		  </ul>
 	  
@@ -88,11 +88,11 @@
 			contenedor.style.visibility = "hidden";
 			contenedor.style.opacity="0";
 		}*/
-		setTimeout(() => {
+		window.onload = function(){
 			var contenedor = document.getElementById('contenedor_carga');
 			contenedor.style.visibility = "hidden";
 			contenedor.style.opacity="0";
-		}, 1000);
+		}
 	</script>
 </body>
 </html>
