@@ -29,16 +29,6 @@ function dias(){
 	document.getElementById('fecha').innerHTML = d.getDate() + " de " + meses[d.getMonth()] + " del " + d.getFullYear();
 }
 
-function registrar() {
-  //alert("Comunicate con el adminitrador.");
-  Swal.fire({
-	icon: 'error',
-	title: 'Oops...',
-	text: 'Comunicate con el adminitrador.',
-	confirmButtonText:  'VOLVER',
-	confirmButtonColor: 'rgb(91,158,84)'
-  })
-}
 
 function semaforo (){
 
@@ -80,22 +70,24 @@ var colorSemaforo;
 
 	function imprimir() {
 		//alert("Comunicate con el adminitrador.");
-		Swal.fire({
+		/*Swal.fire({
 		  icon: 'error',
 		  title: 'Oops...',
 		  text: 'Comunicate con el adminitrador.',
 		  confirmButtonText:  'VOLVER',
 		  confirmButtonColor: 'rgb(91,158,84)'
-		})
-	  }
+		})*/
+		window.print();
+	}
 
-	  function descargar() {
+	function descargar() {
 		//alert("Comunicate con el adminitrador.");
-		Swal.fire({
+		/*Swal.fire({
 		  icon: 'error',
 		  title: 'Oops...',
 		  text: 'Comunicate con el adminitrador.',
 		  confirmButtonText:  'VOLVER',
 		  confirmButtonColor: 'rgb(91,158,84)'
-		})
-	  }
+		})*/
+		window.print();
+	}
