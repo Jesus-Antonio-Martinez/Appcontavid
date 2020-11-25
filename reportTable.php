@@ -55,14 +55,50 @@
 <!--Favicon-->
 <link  rel="icon"   href="icon.png" type="image/png" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
+<!--Custom CSS
+<link href="estilo.css" rel="stylesheet" type="text/css">-->
 <!--JS-->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="java.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.cjs.js"> </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+body{
+	font-family: 'Comfortaa', cursive;
+}
+#div1 {
+     height:200px;
+     width:auto;
+		 align: center;
+}
+#div1 table {
+    width: 100%;
+		padding: 5px;
+		text-align:center;
+    /*background-color: rgb(91,158,84);*/
+		color: rgb(91,158,84);
+}
 
+th, td {
+   width: 25%;
+}
+th{
+	background-color: rgb(187,225,182);
+	color:white;
+}
+tr:nth-child(even) {
+  background-color: rgb(187,225,182);
+}
+tr:nth-child(odd) {
+  background-color: rgb(234,249,232);
+}
+h3{
+	color: rgb(91,158,84);
+	font-size: 30px;
+}
+</style>
 </head>
 
 <body>
@@ -92,51 +128,37 @@
 			</ul>
 			</section>
 		</nav>
-	</header>-->
+	</header>
+-->
+<h3>REPORTE</h3>
+<div id="div1">
+	<table>
+	    <thead>
+	        <tr>
+	            <th>ID</th>
+	            <th>Gente entrando/saliendo:</th>
+	            <th>Gente dentro:</th>
+	            <th>Dia actual: </th>
+	        </tr>
+	    </thead>
+	    <tbody>
 
-		<h3>REPORTE</h3>
+				<?php
+				 $j = 0;
+				 for ($i = 0; $i<count($listaItems); $i++){
+					 $j++;
+				?>
 
-		<?php
-		 //bucle para recorrer los elementos del array
-		 $j = 0;
-		 for ($i = 0; $i<count($listaItems); $i++){
-			 $j++;
-		?>
+				<tr>
+				 <td><?php echo $j?></td>
+				 <td><?php echo $manageT["data"][$i]["peopleEntering"]; ?></td>
+				 <td><?php echo $manageT["data"][$i]["peopleInside"]; ?></td>
+				 <td><?php echo $manageT["data"][$i]["currentDay"]; ?></td>
+				</tr>
 
-		 <table>
-		  <tr>
-		   <td>ID: </td>
-		   <td>
-		    <?php echo $j?>
-		   </td>
-		  </tr>
-
-			<tr>
-		   <td>Gente entrando/saliendo: </td>
-		   <td>
-		    <?php echo $manageT["data"][$i]["peopleEntering"]; ?>
-		   </td>
-		  </tr>
-
-			<tr>
-		   <td>Gente dentro: </td>
-		   <td>
-		    <?php echo $manageT["data"][$i]["peopleInside"]; ?>
-		   </td>
-		  </tr>
-
-			<tr>
-		   <td>Dia actual: </td>
-		   <td>
-		    <?php echo $manageT["data"][$i]["currentDay"]; ?>
-		   </td>
-		  </tr>
-		 </table><br/>
-
-		<?php
-		 } //cerramos bucle
-		?>
-
-
+				<?php } ?>
+	    </tbody>
+	</table>
+</div>
 </body>
 </html>
