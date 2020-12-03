@@ -63,7 +63,7 @@
     $manage = json_decode($result, true);
 	//print_r($result);
 
-	$cantidad = $manage["store"]["peopleInside"];
+	$cantidad = $manage["store"]["peopleInside"]+30;
 	$_SESSION["cantidad"]=$cantidad;
 
 ?>
