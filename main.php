@@ -117,7 +117,7 @@
 										echo $cantidad;
 									?>	
 									<script>
-										if( <?php echo $cantidad; ?> ==50){
+										if( <?php echo $cantidad; ?> >=50){
 											colorSemaforo=0; //rojo
 										}
 										else if( <?php echo $cantidad; ?> <50 &&  <?php echo $cantidad; ?> >35){
